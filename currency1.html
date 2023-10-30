@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>conveter</h1>
+    <h1>rupee</h1>
+    <input type="number" id="rupee">
+    <select name="" id="selctedValue" onchange="answer()">
+        <option value="Dollar">Dollar</option>
+        <option value="Rubble">Rubble</option>
+        <option value="Yen">Yen</option>
+        <option value="Japan">Japan</option>
+        <option value="Euro">Euro</option>
+        <option value="Nepali">Nepali</option>
+    </select>
+    <h1 id="currency"></h1>
+    <div id="answer"></div>
+    <script>
+        function answer() {
+            let s = document.getElementById("selctedValue").Value;
+            if (s == "Dollar") {
+                let rupee = document.getElementById("rupee").Value
+    
+                let d = parseFloat(rupee) / 80
+                Document.getElementById("cuaaaaarrency").innerHTML = s
+                Document.getElementById("answer").innerHTML = d
+            }
+            else if (s == "Rubble") {
+                let rupee = document.getElementById("rupee").Value
+    
+                let d = parseFloat(rupee) / 1.80
+                Document.getElementById("currency").innerHTML = s
+                Document.getElementById("answer").innerHTML = d
+            }
+        }
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Currency Convertor</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            body{
+                display: flex;
+                background-color: rgb(167, 248, 221);
+                justify-content: center;
+                align-items: center;
+                margin-top: 200px;
+            }
+            input{
+                height: 35px;
+                width: 300px;
+                border-radius: 4px;
+                border: 1px solid black;
+            }
+            label{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 24px;
+            }
+            select{
+                height: 35px;
+                width: 120px;
+            }
+
+                        </style>
+    </head>
+    <body>
+        <form id="my-form" name="Convertor" action="">
+        <label for="Currency">Amount</label>
+        <input type="number" name="Amount" id="Currency">
+        <br>
+        <label for="">select currency</label>
+        
+        <select name="currency" id="kailash" onchange="hello(this.value)">
+        <option value="279">Dinnar</option>
+        <option value="94">Euro</option>
+        <option value="83">Dollar</option>
+        <option value="51">Rubble</option>
+        </select>
+        <br>
+        <input type="number" name="result" id="output" readonly>
+    </form>
+        <script>
+            
+            function hello(val){
+                let inputs=document.querySelectorAll("input")
+                inputs[1].value=val*inputs[0].value
+            
+                
+            }
+            
+            
+            
+        </script>
+
+        
+        
+        
+    
+    </body>
+</html>

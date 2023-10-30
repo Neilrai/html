@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+      *{
+       font-family:cursive;
+       background-image: linear-gradient(to right, red , yellow);
+       color: rgb(255, 252, 252);
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  
+      }
+    </style>
+</head>
+<body>
+    <h1>Fd Investment</h1>
+<label >principle amount</label>
+<input type="number" name="" id="principle"><br>
+<label >time in year</label>
+<input type="number" name="" id="time"`><br>
+<label for="">select bank</label>
+<select id="bank" value="" onchange="intrest()">
+    <option name="SBI" id="">SBI</option>
+    <option name="PNB" id="">PNB</option>
+    <option name="ICICI" id="">ICICI</option>
+    <option name="BOB" id="">BOB</option>
+</select>
+<h1>YOUR RATE OF INTREST IS:</h1>
+<h3 id="intrest"></h3><br>
+<h1>total amount</h1>
+<h3 id="amount"></h3>
+</body>
+<script>
+    function intrest(){
+    let p=document.getElementById("principle")
+    let t=document.getElementById("time")
+    let o=document.getElementById("bank")
+    let i=document.getElementById("intrest")
+    let a=document.getElementById("amount")
+    if(o.value=="SBI"){
+      let result=(p.value*t.value*7.5)/100;
+      i.innerHTML=result
+      let total=Number.parseFloat(p.value)+Number.parseFloat(result);
+      a.innerHTML=total
+        }
+        if(o.value=="PNB"){
+      let result=(p.value*t.value*8.5)/100;
+      i.innerHTML=result
+      let total=Number.parseFloat(p.value)+Number.parseFloat(result);
+      a.innerHTML=total
+        }
+        if(o.value=="ICICI"){
+      let result=(p.value*t.value*9.5)/100;
+      i.innerHTML=result
+      let total=Number.parseFloat(p.value)+Number.parseFloat(result);
+      a.innerHTML=total
+        }
+        if(o.value=="BOB"){
+      let result=(p.value*t.value*10.5)/100;
+      i.innerHTML=result
+      let total=Number.parseFloat(p.value)+Number.parseFloat(result);
+      a.innerHTML=total
+        }
+
+}
+</script>
+</html>

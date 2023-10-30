@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>calculutor</title>
+
+</head>
+<body>
+  <label for="First no">First no</label>
+  <input type="number" name="" id="first"><br><br>
+  <label for="Second no">Second no</label>
+  <input type="number" name="" id="second"><br><br>
+<button onclick="add()">ADDITION</button>
+<button onclick="SUBTRACT()">SUBTRACT</button>
+<button onclick="MULTIPLY()">MULTIPLY</button>
+<button onclick="DIVIDE()">DIVIDE</button>
+<div id="answer"></div>
+
+</body>
+<script>
+  function add() { 
+let first=document.getElementById("first").value
+let second=document.getElementById("second").value
+let sum=Number.parseFloat(first) + Number.parseFloat(second);
+let answer=document.getElementById("answer").innerHTML=Number.parseFloat(sum)
+  }
+  function SUBTRACT(){
+let First=document.getElementById("first").value
+let Second=document.getElementById("second").value
+let sum=Number.parseFloat(First)-Number.parseFloat(Second);
+let answer=document.getElementById("answer").innerHTML=Number.parseFloat(sum)
+  }
+  function MULTIPLY() { 
+let First=document.getElementById("first").value;
+let Second=document.getElementById("second").value;
+let sum=(Number.parseFloat(First)*Number.parseFloat(Second));
+let answer=document.getElementById("answer").innerHTML=Number.parseFloat(sum)
+  }
+  function DIVIDE() { 
+let First=document.getElementById("first").value
+let Second=document.getElementById("second").value
+let sum=(Number.parseFloat(First)/Number.parseFloat(Second));
+let answer=document.getElementById("answer").innerHTML=Number.parseFloat(sum)
+  }
+
+
+</script>
+</html>

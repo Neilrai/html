@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather App</title>
+   <style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: #223;
+}
+.card{
+    width: 90%;
+    max-width: 480px;
+    background: linear-gradient(135deg,#00feba,#5b548a);
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search input{
+    border:0;
+    outline:0;
+    background-color: #ebffcc;
+    color:#555;
+    padding: 10px 20px;
+    height: 60px;
+    border-radius: 30px;
+    font-size: 18px;
+    margin-right: 15px;
+}
+.search button{
+    border:0;
+    outline: 0;
+    background-color:#ebffcc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.search button img{
+    width: 25px;
+}
+.weatherIcon{
+    width: 170px;
+    margin-top: 30px;
+}
+.weather h1{
+    font-size: 80px;
+    font-weight: 500;
+}
+.weather h2{
+    font-size: 45px;
+    font-weight: 400;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+.col{
+    display: flex;
+    
+    align-items: center;
+    text-align: left;
+
+}
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
+.humidity,.wind{
+    font-size: 28px;
+
+}
+   </style>
+
+</head>
+
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" name="" id="" placeholder="Enter City Name">
+            <button><img src="/png/magnifying-glass.png" alt=""></button>
+        </div>
+        <div class="weather">
+         <img src="/png/sunny.png" alt="" class="weatherIcon">
+           <h1 class="temp">22°C</h1>
+            <h2 class="city">City</h2>
+
+            <div class="details">
+                <div class="col">
+                    <img src="/png/wind.png" alt="">
+
+                    <div>
+                        <div class="wind">20km/hr</div>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="/png/humidity.png" alt="">
+
+                    <div>
+                        <div class="humidity">15%</div>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const apikey="29f0c14e93ce78db087ec685d0e75be1"
+const apiurl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const searchBox=document.querySelector(".search input");
+    const searchBtn=document.querySelector(".search button");
+    const weatherIcon=document.querySelector(".weatherIcon")
+
+
+    async function checkweather(city){
+    const response=await fetch(apiurl+city+`&appid=${apikey}`);
+        var data=await response.json()
+        console.log(data);
+        document.querySelector(".city").innerHTML=data.name;
+        document.querySelector(".temp").innerHTML=Math.floor (data.main
+        .temp)+"°C";
+        document.querySelector(".humidity").innerHTML=data.main.humidity+"%";
+        document.querySelector(".wind").innerHTML=data.wind.speed+"km/h";
+        console.log(data.weather[0].main)
+        if (data.weather[0].main=="Clouds"){
+            weatherIcon.src="clouds.png"
+        }
+        else if (data.weather[0].main=="Clear"){
+            weatherIcon.src="sunny.png"
+        }
+        else if (data.weather[0].main=="rain"){
+            weatherIcon.src="rain.png"
+        }
+
+    }
+    searchBtn.addEventListener("click",()=>{
+        checkweather(searchBox.value);}
+        )
+</script>
+</html>

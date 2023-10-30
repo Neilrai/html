@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+</head> 
+<style>
+   #a{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+#b{
+    display: flex;
+    justify-content: space-evenly;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+    box-shadow: 0px -2px 6px gray;
+    height: 35px;
+    border-radius: 2px;
+}
+.box:hover{
+    background-color:floralwhite;
+}
+label {
+    margin: 10px;
+}
+input{
+    margin: 10px;
+}
+.main {
+    display: flex;
+   width: 100%;
+   height: 100vh;
+   background-color: aquamarine;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+.container{
+    padding: 10px;
+    height: 260px;
+    width: 500px;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: coral;
+}
+#questionbox{
+    padding-left: 20px;
+}
+#submit{
+    height: 30px;
+    width: 250px;
+    background-color: rgb(75, 222, 254);
+    color: black;
+    border-radius: 10px;
+    
+
+}
+ 
+</style>
+<body>
+<div id="a">
+    <h1>welocom to Quiz</h1>
+</div>
+<div id="b">
+    <h4>time=5minutes</h4>
+    <h4>question=4</h4>
+
+</div>
+
+    <section class="main">
+        <div class="container">
+            <div class="col">
+                <h3 id="questionBox">This is question</h3>
+            </div>
+            <div class="col box">
+                <input type="radio" name="option" id="first" value="a" required>
+                <label for="first">Option 1</label>
+            </div>
+            <div class="col box">
+                <input type="radio" name="option" id="second" value="b" required>
+                <label for="second">Option 2</label>
+            </div>
+            <div class="col box">
+                <input type="radio" name="option" id="third" value="c" required>
+                <label for="third">Option 3</label>
+            </div>                                                                          
+            <div class="col box">
+                <input type="radio" name="option" id="forth" value="d" required>
+                <label for="forth">Option 4</label>
+            </div>
+            <button id="submit" type="submit" onclick="submitQuiz()">submit</button> 
+        </div>
+    </section>
+</body>
+<script>
+    const quizData=[{
+    Question: "(1)what is my name?",
+    a:"n",
+    b:"w",
+    c:"d",
+    d:"d",
+    correct:"a"
+},
+{
+    Question: "(2)what is my name?",
+    a:"d",
+    b:"e",
+    c:"a",
+    d:"cv",
+    correct:"b"
+}
+,
+{
+    Question: "(3)what is my name?",
+    a:"d",
+    b:"https://github.com/KailashSingh09",
+    c:"i",
+    d:"l",
+    correct:"c"
+}
+,
+{
+    Question: "(4)what is my name?",
+    a:"k",
+    b:"r",
+    c:"w",
+    d:"l",
+    correct:"d"
+}
+]
+let index=0;
+let correct=0;
+let incorrect=0;
+let total=quizData.length;
+let questionBox=document.getElementById("questionBox");
+let allInputs=document.querySelectorAll("input");
+const loadQuestion=()=>{
+    
+    if(index===total){
+        return endQuiz();
+    }
+    const data=quizData[index]
+    questionBox.innerHTML=data.Question;
+    allInputs[0].nextElementSibling.innerHTML=data.a;
+    allInputs[1].nextElementSibling.innerHTML=data.b;
+    allInputs[2].nextElementSibling.innerHTML=data.c;
+    allInputs[3].nextElementSibling.innerHTML=data.d;
+}
+const submitQuiz=()=>{
+const data=quizData[index]
+const ans=getAnswer();
+if (ans==data.correct){
+    correct++;
+    
+}else{
+    incorrect++;
+}
+index++;
+loadQuestion()
+}
+const getAnswer=()=>{
+    let answer;
+    allInputs.forEach(
+        (input)=>{
+            if(input.checked){
+                answer=input.value;
+                input.checked=null
+            }
+        }
+    );return answer;
+}
+const endQuiz=()=>{
+document.querySelector(".container").innerHTML=`<h3>That was great check your result</h3>
+<h2>${correct}/${total} are correct</h2>`
+
+}
+loadQuestion();
+</script>
+</html>

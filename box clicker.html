@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+<style>
+#box{
+height: 250px;
+width: 250px;
+background-color: aqua;
+margin: 100px auto;
+cursor: pointer;
+}
+#box:hover{
+box-shadow: 0px 0px 30px grey;
+}
+h1{
+    text-align: center;
+}
+
+
+</style>
+</head>
+<body>
+
+        <div id="box"></div>
+            <h1>box clicker <span id="click-count">0</span>times</h1>
+        
+
+</body>
+<script>
+        let box = document.getElementById('box')
+        let clickCount = document.getElementById ('click-count')
+        count = 0
+        box.addEventListener('click' , function()
+        {
+            count++;
+            console.log(count);
+            clickCount.innerText = count + "";
+        })
+
+</script>
+</html>

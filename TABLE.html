@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>print your table</h1>
+    <input type="number" name="" id="num">
+    <button onclick="show()">ans</button>
+</body>
+<script>
+function show(){
+    let t=document.getElementById("table")
+    let v=document.getElementById("num")
+    for ( i = 0; i < 10; i++) {
+        document.write(v.value,"*",i,"=",v.value*i,"<br>")
+        
+    }
+}
+</script>
+</html>

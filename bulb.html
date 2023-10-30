@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+
+<body>
+    <button onclick="bulb_on()">on</button>
+    <img id="bulb" src="./pic_bulboff.gif" alt="">
+    <h2 id="oo">on</h2>
+    <button onclick="bulb_off()">off</button>
+    <script>
+        function bulb_on() {
+            let bulb = document.getElementById("bulb")
+            let heading=document.getElementById("oo")
+            heading.style.border="2px solid red"
+            heading.innerHtml="on"
+            bulb.src = "./pic_bulbon.gif"
+        }
+        function bulb_off() {
+            let bulb=document.getElementById("bulb")
+            let heading=document.getElementById("oo")
+            heading.innerHtml="off"
+            heading.style.border="2px solid blue"
+            bulb.src = "./pic_bulboff.gif"
+        }
+    </script>
+</body>
+</html>
